@@ -46,9 +46,11 @@
                     <p class="subtitle">{{ profile.title }}</p>
                     <p class="bio">{{ profile.bio }}</p>
                     <div class="social-links">
-                        <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank"
-                            rel="noopener noreferrer"
-                            class="social-link" :title="social.name">
+                        <a v-for="social in socialLinks" :key="social.name" :href="social.url"
+                            :target="social.external ? '_blank' : null"
+                            :rel="social.external ? 'noopener noreferrer' : null"
+                            class="social-link" :title="social.name + ': ' + social.value"
+                            :aria-label="social.name + ': ' + social.value">
                             <i :class="social.icon"></i>
                         </a>
                     </div>
@@ -202,9 +204,14 @@
                     <div class="footer-contact">
                         <h4>Connect</h4>
                         <div class="contact-items">
-                            <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank"
-                                rel="noopener noreferrer">
-                                <i :class="social.icon"></i> {{ social.name }}
+                            <a v-for="social in socialLinks" :key="social.name" :href="social.url"
+                                :target="social.external ? '_blank' : null"
+                                :rel="social.external ? 'noopener noreferrer' : null">
+                                <i :class="social.icon"></i>
+                                <span class="contact-text">
+                                    <span class="contact-name">{{ social.name }}</span>
+                                    <span class="contact-value">{{ social.value }}</span>
+                                </span>
                             </a>
                         </div>
                     </div>
@@ -254,7 +261,10 @@
 
                 // ===== 社交链接 =====
                 const socialLinks = ref([
-                    { name: 'GitHub', icon: 'ri-github-fill', url: 'https://github.com/canmoumou' }
+                    { name: '电话', icon: 'ri-phone-fill', url: 'tel:+8615355914346', value: '153 5591 4346' },
+                    { name: '邮箱', icon: 'ri-mail-fill', url: 'mailto:Yuchen.Huang24@student.xjtlu.edu.cn', value: 'Yuchen.Huang24@student.xjtlu.edu.cn' },
+                    { name: 'GitHub', icon: 'ri-github-fill', url: 'https://github.com/canmoumou', value: 'canmoumou', external: true },
+                    { name: '微信', icon: 'ri-wechat-fill', url: '#contact', value: 'DennisJo' }
                 ]);
 
                 // ===== 关于我 =====
