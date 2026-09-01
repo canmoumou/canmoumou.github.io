@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://canmoumou.github.io/sitemap.xml

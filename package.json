@@ -1,16 +1,15 @@
 {
-  "name": "weixun-portfolio",
+  "name": "dennisjo-portfolio",
   "version": "1.0.0",
-  "description": "未寻 - 个人主页",
+  "description": "Dennisjo - 个人主页",
   "scripts": {
-    "serve": "npx serve . -p 3000",
-    "deploy:gh": "gh-pages -d . -b gh-pages"
+    "serve": "npx serve . -p 3000"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wexuo/wexuo.github.io"
+    "url": "https://github.com/canmoumou/canmoumou.github.io"
   },
   "keywords": ["portfolio", "personal-website", "vue3"],
-  "author": "未寻",
+  "author": "Dennisjo",
   "license": "MIT"
 }

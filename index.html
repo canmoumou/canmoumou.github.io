@@ -4,12 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>未寻 | Senior Backend Engineer</title>
-    <meta name="description" content="资深后端工程师，专注于高并发、分布式系统架构设计">
-    <meta name="keywords" content="Java,Go,Python,微服务,分布式,架构师">
+    <title>Dennisjo | Developer & Open-source Builder</title>
+    <meta name="description" content="Dennisjo 的个人主页：用代码把想法变成可用的工具，关注 AI 工作流、Python 应用与开源实践。">
+    <meta name="keywords" content="Dennisjo,Python,FastAPI,LangGraph,Streamlit,AI Workflow,Open Source">
     <meta name="theme-color" content="#0d1117">
-    <link rel="icon" type="image/svg+xml" href="static/img/avatar.svg">
-    <link rel="alternate icon" href="favicon.ico">
+    <meta property="og:title" content="Dennisjo | Developer & Open-source Builder">
+    <meta property="og:description" content="用代码把想法变成可用的工具。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://canmoumou.github.io/">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/78155180?v=4">
+    <link rel="canonical" href="https://canmoumou.github.io/">
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/78155180?v=4">
     <link rel="stylesheet" href="static/css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
 </head>
@@ -42,6 +47,7 @@
                     <p class="bio">{{ profile.bio }}</p>
                     <div class="social-links">
                         <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank"
+                            rel="noopener noreferrer"
                             class="social-link" :title="social.name">
                             <i :class="social.icon"></i>
                         </a>
@@ -110,6 +116,10 @@
                             <div class="project-header">
                                 <i :class="project.icon"></i>
                                 <h3>{{ project.title }}</h3>
+                                <a :href="project.url" target="_blank" rel="noopener noreferrer"
+                                    class="project-link" :aria-label="'查看 ' + project.title">
+                                    <i class="ri-arrow-right-up-line"></i>
+                                </a>
                             </div>
                             <p class="project-desc">{{ project.desc }}</p>
                             <div class="project-tags">
@@ -129,7 +139,7 @@
                 <section id="experience" class="section" :class="{ visible: visibleSections.experience }">
                     <div class="section-header">
                         <i class="ri-time-line"></i>
-                        <h2>Experience</h2>
+                        <h2>Build Log</h2>
                         <span class="section-line"></span>
                     </div>
                     <div class="timeline">
@@ -172,6 +182,7 @@
                     </div>
                     <div class="links-grid">
                         <a v-for="link in resourceLinks" :key="link.name" :href="link.url" target="_blank"
+                            rel="noopener noreferrer"
                             class="link-card">
                             <i :class="link.icon"></i>
                             <span>{{ link.name }}</span>
@@ -191,18 +202,19 @@
                     <div class="footer-contact">
                         <h4>Connect</h4>
                         <div class="contact-items">
-                            <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank">
+                            <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank"
+                                rel="noopener noreferrer">
                                 <i :class="social.icon"></i> {{ social.name }}
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p class="copyright-main">&copy; 2019 - {{ currentYear }} {{ site.name }} · All Rights Reserved</p>
+                    <p class="copyright-main">&copy; {{ currentYear }} {{ site.name }} · All Rights Reserved</p>
                     <p class="copyright-sub">
                         <span>Powered by Vue 3</span>
                         <span class="divider">|</span>
-                        <span><a href="https://github.com/wexuo" target="_blank">GitHub</a></span>
+                        <span><a href="https://github.com/canmoumou" target="_blank" rel="noopener noreferrer">GitHub</a></span>
                         <span class="divider">|</span>
                         <span>Made with <i class="ri-heart-fill"></i> in China</span>
                     </p>
@@ -219,8 +231,8 @@
             setup() {
                 // ===== 站点配置 =====
                 const site = reactive({
-                    name: '未寻',
-                    slogan: '探索未知，代码为舟'
+                    name: 'Dennisjo',
+                    slogan: '把想法变成真正可用的工具'
                 });
 
                 // ===== 导航链接 =====
@@ -234,74 +246,70 @@
 
                 // ===== 个人信息 =====
                 const profile = reactive({
-                    name: '未寻',
-                    avatar: 'static/img/avatar.svg',
-                    title: 'Senior Backend Engineer · System Architect',
-                    bio: '专注于高并发、高可用分布式系统架构设计，深耕 Java 生态，拥抱云原生技术'
+                    name: 'Dennisjo',
+                    avatar: 'https://avatars.githubusercontent.com/u/78155180?v=4',
+                    title: 'Developer · Open-source Builder',
+                    bio: '用代码把想法变成可用的工具，关注 AI 工作流、Python 应用与真实问题的工程化解决方案'
                 });
 
                 // ===== 社交链接 =====
                 const socialLinks = ref([
-                    { name: 'GitHub', icon: 'ri-github-fill', url: 'https://github.com/wexuo' },
-                    { name: 'Email', icon: 'ri-mail-fill', url: '#' },
-                    { name: '掘金', icon: 'ri-quill-pen-fill', url: '#' },
-                    { name: '知乎', icon: 'ri-zhihu-fill', url: '#' },
-                    { name: '微信', icon: 'ri-wechat-fill', url: '#' }
+                    { name: 'GitHub', icon: 'ri-github-fill', url: 'https://github.com/canmoumou' }
                 ]);
 
                 // ===== 关于我 =====
                 const about = reactive({
-                    intro: '资深后端工程师，拥有多年互联网研发经验。主导过多个核心业务系统的架构设计与落地实施，在高并发、分布式、微服务架构领域有深厚积累。',
+                    intro: '我是 Dennisjo，一名喜欢从真实需求出发做项目的开发者。近期主要在探索 AI 工作流、研究辅助工具与轻量级实用应用，并持续通过开源项目记录自己的实践。',
                     cards: [
-                        { icon: 'ri-code-s-slash-fill', title: '服务端开发', desc: '精通 Java，熟练掌握 Go、Python，具备多语言混合编程能力，专注于构建高性能服务端应用' },
-                        { icon: 'ri-cloud-fill', title: '微服务架构', desc: '精通 Spring Cloud / Dubbo 微服务体系，熟悉 Service Mesh，有大规模微服务治理与调优实战经验' },
-                        { icon: 'ri-database-2-fill', title: '数据架构', desc: '精通 MySQL 调优、Redis 缓存架构，熟悉 Elasticsearch、MongoDB、ClickHouse 等数据存储方案' },
-                        { icon: 'ri-route-fill', title: '分布式系统', desc: '熟悉分布式事务、分布式锁、一致性协议，有高并发系统设计与调优经验' },
-                        { icon: 'ri-layout-fill', title: '全栈能力', desc: '具备前端开发能力，熟练使用 Vue3、React、TypeScript，可独立完成全栈项目开发' },
-                        { icon: 'ri-smartphone-fill', title: '移动端开发', desc: '熟悉 uni-app 跨端开发框架，具备小程序、H5、App 多端统一开发能力' }
+                        { icon: 'ri-git-branch-line', title: 'AI 工作流', desc: '把复杂任务拆成可验证的步骤，让检索、抽取、生成与核验形成清晰的工作流' },
+                        { icon: 'ri-file-search-line', title: '研究辅助', desc: '围绕论文检索、全文阅读、方法提取和证据映射，探索更可靠的 AI 研究工具' },
+                        { icon: 'ri-code-s-slash-fill', title: 'Python 应用', desc: '使用 Python、FastAPI 与 Streamlit 构建从命令行到 Web 界面的完整原型' },
+                        { icon: 'ri-map-pin-time-line', title: '实用工具', desc: '从日常问题出发，把地图路线、时间估算等能力组合成简单直接的产品体验' },
+                        { icon: 'ri-test-tube-line', title: '工程验证', desc: '重视结构化输出、测试、配置管理和可追溯证据，让项目不仅能运行，也便于验证' },
+                        { icon: 'ri-open-source-line', title: '开源实践', desc: '通过公开仓库沉淀项目设计、使用说明和后续路线，让每次构建都可复用、可迭代' }
                     ]
                 });
 
                 // ===== 技术栈 =====
                 const skills = ref([
                     {
-                        name: '编程语言',
+                        name: '应用开发',
                         icon: 'ri-code-s-fill',
                         items: [
-                            { name: 'Java', level: 95, levelName: '精通' },
-                            { name: 'Python', level: 75, levelName: '熟练' },
-                            { name: 'Go', level: 65, levelName: '掌握' },
-                            { name: 'TypeScript', level: 65, levelName: '掌握' }
+                            { name: 'Python', level: 88, levelName: '实践' },
+                            { name: 'FastAPI', level: 76, levelName: '实践' },
+                            { name: 'Streamlit', level: 78, levelName: '实践' },
+                            { name: 'REST API', level: 72, levelName: '实践' }
                         ]
                     },
                     {
-                        name: '后端框架',
-                        icon: 'ri-leaf-fill',
+                        name: 'AI 与研究工具',
+                        icon: 'ri-brain-line',
                         items: [
-                            { name: 'Spring Boot / Cloud', level: 95, levelName: '精通' },
-                            { name: 'Dubbo / gRPC', level: 85, levelName: '熟练' },
-                            { name: 'MyBatis / JPA', level: 85, levelName: '熟练' },
-                            { name: 'Netty / Vert.x', level: 70, levelName: '掌握' }
+                            { name: 'LangGraph', level: 78, levelName: '实践' },
+                            { name: 'LLM API', level: 80, levelName: '实践' },
+                            { name: 'arXiv', level: 76, levelName: '实践' },
+                            { name: 'PDF 解析', level: 68, levelName: '探索' }
                         ]
                     },
                     {
-                        name: '数据存储',
-                        icon: 'ri-database-fill',
+                        name: '工程方法',
+                        icon: 'ri-tools-line',
                         items: [
-                            { name: 'MySQL', level: 90, levelName: '精通' },
-                            { name: 'Redis', level: 90, levelName: '精通' },
-                            { name: 'Elasticsearch', level: 75, levelName: '熟练' },
-                            { name: 'MongoDB / ClickHouse', level: 65, levelName: '掌握' }
+                            { name: 'Workflow 设计', level: 84, levelName: '实践' },
+                            { name: '结构化输出', level: 80, levelName: '实践' },
+                            { name: 'Evidence Mapping', level: 78, levelName: '实践' },
+                            { name: 'Pytest', level: 70, levelName: '实践' }
                         ]
                     },
                     {
-                        name: '中间件与运维',
-                        icon: 'ri-tools-fill',
+                        name: 'Web 与交付',
+                        icon: 'ri-global-line',
                         items: [
-                            { name: 'Kafka / RabbitMQ', level: 85, levelName: '熟练' },
-                            { name: 'Docker / K8s', level: 80, levelName: '熟练' },
-                            { name: 'Jenkins / GitLab CI', level: 75, levelName: '熟练' },
-                            { name: 'Prometheus / Grafana', level: 70, levelName: '掌握' }
+                            { name: 'Vue 3', level: 66, levelName: '实践' },
+                            { name: 'HTML / CSS', level: 72, levelName: '实践' },
+                            { name: 'Git / GitHub', level: 78, levelName: '实践' },
+                            { name: 'GitHub Actions', level: 68, levelName: '实践' }
                         ]
                     }
                 ]);
@@ -309,67 +317,60 @@
                 // ===== 项目经验 =====
                 const projects = ref([
                     {
-                        icon: 'ri-shopping-bag-fill',
-                        title: '电商交易系统',
-                        desc: '负责核心交易链路开发，涵盖订单系统、库存管理、支付对接等模块。通过 Redis 缓存优化、异步削峰等手段提升系统性能，保障大促期间系统稳定运行。',
-                        tags: ['Spring Boot', 'MySQL', 'Redis', 'RabbitMQ'],
+                        icon: 'ri-file-search-line',
+                        title: 'Related Work Workflow Agent',
+                        url: 'https://github.com/canmoumou/related-work-agent',
+                        desc: '面向 Related Work 写作的端到端工作流：拆解研究主题、检索并筛选 arXiv 论文、抽取方法论内容、聚类写作，并输出证据映射与核验报告。',
+                        tags: ['Python', 'FastAPI', 'LangGraph', 'Streamlit', 'Qwen'],
                         metrics: [
-                            { value: '10W+', label: '日均订单' },
-                            { value: '99.9%', label: '可用性' }
+                            { value: '端到端', label: '研究流程' },
+                            { value: '3 种', label: '使用入口' }
                         ]
                     },
                     {
-                        icon: 'ri-flashlight-fill',
-                        title: '即时通讯服务',
-                        desc: '基于 Netty 构建的 IM 服务，支持私聊、群聊、消息已读等核心功能。采用 WebSocket 长连接 + 消息队列架构，保证消息实时性和可靠性。',
-                        tags: ['Netty', 'WebSocket', 'Redis', 'Protobuf'],
+                        icon: 'ri-map-pin-time-fill',
+                        title: '碰面吧',
+                        url: 'https://github.com/canmoumou/meetup',
+                        desc: '同城碰面位置计算工具。根据两个人的出发位置、出行方式和可接受通行时间，估算路线耗时并推荐对双方更方便的商圈。',
+                        tags: ['Python', 'Streamlit', '高德地图 API', 'Pytest'],
                         metrics: [
-                            { value: '5W+', label: '在线用户' },
-                            { value: '20ms', label: '平均延迟' }
+                            { value: '双人', label: '位置输入' },
+                            { value: '多方式', label: '路线估算' }
                         ]
                     },
                     {
-                        icon: 'ri-search-eye-fill',
-                        title: '风控预警系统',
-                        desc: '实时风控检测系统，支持规则动态配置与热更新。通过规则引擎 + 特征库实现反欺诈、反刷单等场景，有效识别异常行为。',
-                        tags: ['Drools', 'Redis', 'MySQL', '定时任务'],
+                        icon: 'ri-pages-line',
+                        title: '个人主页',
+                        url: 'https://github.com/canmoumou/canmoumou.github.io',
+                        desc: '响应式个人作品主页，集中展示技术实践与开源项目，并通过 GitHub Actions 自动发布到 GitHub Pages。',
+                        tags: ['Vue 3', 'HTML', 'CSS', 'GitHub Pages'],
                         metrics: [
-                            { value: '1亿+', label: '日检测量' },
-                            { value: '<100ms', label: '响应时间' }
-                        ]
-                    },
-                    {
-                        icon: 'ri-cloud-fill',
-                        title: '微服务基础架构',
-                        desc: '搭建公司微服务基础设施，包括统一网关、配置中心、链路追踪、日志收集等。基于 Spring Cloud Alibaba 体系，支撑业务服务数量持续增长。',
-                        tags: ['Spring Cloud', 'Nacos', 'Sentinel', 'SkyWalking'],
-                        metrics: [
-                            { value: '50+', label: '服务数量' },
-                            { value: '统一治理', label: '运维体系' }
+                            { value: '响应式', label: '多端适配' },
+                            { value: '自动化', label: '持续部署' }
                         ]
                     }
                 ]);
 
                 // ===== 工作经历 =====
                 const experience = ref([
-                    { date: '2021 - 至今', title: '高级后端工程师', company: '某成长型互联网公司', desc: '负责核心业务系统架构设计与优化，主导微服务改造，从零搭建监控运维体系' },
-                    { date: '2019 - 2021', title: 'Java 后端工程师', company: '某科技公司', desc: '参与电商平台后端开发，负责订单、支付等核心模块，独立完成多个业务需求' },
-                    { date: '2015 - 2019', title: '计算机科学与技术', company: '某大学 · 本科', desc: '系统学习计算机基础，积极参与技术社区，开源项目贡献者' }
+                    { date: '2026.08', title: '发布「碰面吧」', company: 'Python · Streamlit · 高德地图 API', desc: '从双方通勤时间出发，设计并实现同城碰面商圈推荐工具。' },
+                    { date: '2026.03', title: '构建 Related Work Workflow Agent', company: 'Python · FastAPI · LangGraph · Streamlit', desc: '将论文检索、筛选、阅读、方法提取、写作与证据核验组织成可追踪的工作流。' },
+                    { date: '持续进行', title: '开源与迭代', company: 'GitHub · Documentation · Testing', desc: '通过公开仓库记录设计思路、完善使用说明，并持续把原型打磨成可复用的工具。' }
                 ]);
 
                 // ===== 统计数据 =====
                 const stats = ref([
-                    { value: '5', label: '年研发经验' },
-                    { value: '50+', label: '技术博客' },
-                    { value: '100W+', label: '代码行数' },
+                    { value: '3', label: '开源项目' },
+                    { value: '2', label: '应用方向' },
+                    { value: '100%', label: '持续构建' },
                     { value: '', label: '访客数', id: 'busuanzi_value_site_uv' }
                 ]);
 
                 // ===== 资源链接 =====
                 const resourceLinks = ref([
-                    { name: 'LeetCode', icon: 'ri-code-box-line', url: 'https://leetcode-cn.com/problemset/all/', desc: '算法训练' },
-                    { name: '剑指 Offer', icon: 'ri-book-open-line', url: 'https://www.nowcoder.com/ta/coding-interviews', desc: '面试宝典' },
-                    { name: 'GitHub', icon: 'ri-github-fill', url: 'https://github.com/', desc: '开源社区' }
+                    { name: 'GitHub Profile', icon: 'ri-github-fill', url: 'https://github.com/canmoumou', desc: '查看全部开源实践' },
+                    { name: 'Related Work Agent', icon: 'ri-file-search-line', url: 'https://github.com/canmoumou/related-work-agent', desc: 'AI 研究工作流' },
+                    { name: '碰面吧', icon: 'ri-map-pin-time-line', url: 'https://github.com/canmoumou/meetup', desc: '同城碰面位置推荐' }
                 ]);
 
                 // ===== 动态数据 =====
@@ -386,7 +387,7 @@
 
                 // ===== 打字效果 =====
                 const typeWriter = () => {
-                    const texts = ['架构改变世界', 'Code is Poetry', 'Stay Hungry, Stay Foolish', '高并发 · 高可用 · 高扩展'];
+                    const texts = ['Hi, I\'m Dennisjo', 'Open-source Builder', 'Build Useful Things', 'Ideas Into Working Software'];
                     let textIndex = 0, charIndex = 0, isDeleting = false;
 
                     const type = () => {
@@ -536,10 +537,10 @@
 
                     // 标签页切换
                     document.addEventListener('visibilitychange', () => {
-                        document.title = document.hidden ? '(๑•́ ₃•̀) 页面走丢了' : `${site.name} | Senior Backend Engineer`;
+                        document.title = document.hidden ? '(๑•́ ₃•̀) 页面走丢了' : `${site.name} | Developer & Open-source Builder`;
                     });
 
-                    console.log(`%c⚡ ${site.name} - 探索未知`, 'color:#58a6ff;font-size:16px;font-weight:bold');
+                    console.log(`%c⚡ ${site.name} - Build Useful Things`, 'color:#58a6ff;font-size:16px;font-weight:bold');
                 });
 
                 return {
